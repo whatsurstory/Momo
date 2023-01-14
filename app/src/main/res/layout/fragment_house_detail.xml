@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/house_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/house_detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="8dp"
+            android:padding="4dp"
+            android:text="@string/home_description"
+            app:layout_constraintEnd_toEndOf="@+id/house_detail_image"
+            app:layout_constraintStart_toStartOf="@+id/house_detail_image"
+            app:layout_constraintTop_toBottomOf="@+id/house_detail_image" />
+
+        <TextView
+            android:id="@+id/house_detail_memo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="4dp"
+            android:text="@string/no_operation_information"
+            app:layout_constraintEnd_toEndOf="@+id/house_detail_content"
+            app:layout_constraintStart_toStartOf="@+id/house_detail_content"
+            app:layout_constraintTop_toBottomOf="@+id/house_detail_content" />
+
+        <TextView
+            android:id="@+id/house_detail_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingHorizontal="4dp"
+            android:text="@string/category"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/house_detail_memo"
+            app:layout_constraintTop_toBottomOf="@+id/house_detail_memo" />
+
+        <TextView
+            android:id="@+id/house_detail_web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="4dp"
+            android:text="@string/web_open"
+            app:layout_constraintBottom_toBottomOf="@+id/house_detail_category"
+            app:layout_constraintEnd_toEndOf="@id/house_detail_memo"
+            app:layout_constraintTop_toBottomOf="@+id/house_detail_memo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" >
+
+        <TextView
+            android:id="@+id/animal_data_text"
+            android:text="@string/animal_data_text"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingVertical="8dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/house_detail_recycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/animal_data_text"
+            tools:listitem="@layout/item_home" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

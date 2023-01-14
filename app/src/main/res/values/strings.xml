@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MomoApplication</string>
+    <string name="home_description">無尾熊為最具代表性的有袋目動物之一。來自澳洲「庫倫賓野生動物保護區」，代表城市友誼並肩負保育、教育使命的無尾熊們，自引進以來一直都是眾所矚目的焦點。無尾熊館設有多個獨立空間，每間屋頂都有天窗可以讓陽光照射進來。在適當天氣時，無尾熊偶爾也會到戶外場地活動，享受溫暖的陽光。</string>
+    <string name="no_operation_information">無休館資訊</string>
+    <string name="home_title">無尾熊館</string>
+    <string name="zoo">臺北市立動物園</string>
+    <string name="category">室內區</string>
+    <string name="web_open">在網頁中開啟</string>
+    <string name="animal_data_text">動物資料</string>
+    <string name="name_zh">大貓熊</string>
+    <string name="name_en">Giant Panda</string>
+    <string name="aka">別名</string>
+    <string name="aka_text">別名</string>
+    <string name="distribution">簡介</string>
+    <string name="distribution_text">簡介</string>
+    <string name="feature">辨認方式</string>
+    <string name="feature_text">辨認方式</string>
+    <string name="behavior">習性</string>
+    <string name="behavior_text">習性</string>
+    <string name="diet">覓食</string>
+    <string name="diet_text">覓食</string>
+    <string name="update">最後更新時間</string>
+    <string name="update_text">最後更新時間</string>
+</resources>
