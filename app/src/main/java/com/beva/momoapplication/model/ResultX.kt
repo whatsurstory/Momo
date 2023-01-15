@@ -1,14 +1,16 @@
 package com.beva.momoapplication.model
 
+import com.squareup.moshi.Json
+
 data class ResultX(
-    val _id: Int,
-    val _importDate: ImportDate,
-    val e_category: String,
-    val e_geo: String,
-    val e_info: String,
-    val e_memo: String,
-    val e_name: String,
-    val e_no: String,
-    val e_pic_url: String,
-    val e_url: String
+    @Json(name = "_id") val id: Int,
+    @Json(name = "_importdate") val importDate: ImportDate,
+    @Json(name = "e_category") val category: String,
+    @Json(name = "e_geo") val geo: String,
+    @Json(name = "e_info") val info: String,
+    @Json(name = "e_memo") val memo: String?,
+    @Json(name = "e_name") val name: String,
+    @Json(name = "e_no") val no: String,
+    @Json(name = "e_pic_url") val picUrl: String,
+    @Json(name = "e_url") val url: String
 )
