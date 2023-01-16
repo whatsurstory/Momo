@@ -8,9 +8,11 @@ import android.text.style.URLSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.beva.momoapplication.CurrentFragmentType
 import com.beva.momoapplication.R
 import com.beva.momoapplication.ZooApplication
 import com.beva.momoapplication.databinding.FragmentHouseDetailBinding
@@ -18,7 +20,7 @@ import com.beva.momoapplication.loadImage
 import com.beva.momoapplication.model.ResultX
 import com.beva.momoapplication.viewmodel.HouseDetailVieModel
 
-class HouseDetailFragment: Fragment() {
+class HouseDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentHouseDetailBinding
 
@@ -27,14 +29,17 @@ class HouseDetailFragment: Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentHouseDetailBinding.inflate(inflater)
         arguments?.let {
             viewModel =
                 HouseDetailVieModel(HouseDetailFragmentArgs.fromBundle(it).selectedProperty)
         }
 
-        val adapter = AnimalsAdapter()
+        val adapter = AnimalsAdapter(AnimalsAdapter.OnClickListener {
+            viewModel.displayPropertyDetails(it)
+        })
         binding.houseDetailRecycler.adapter = adapter
         viewModel.properties.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
@@ -42,9 +47,19 @@ class HouseDetailFragment: Fragment() {
 
         viewModel.selectedProperty.observe(viewLifecycleOwner) { property ->
             property?.let {
+                (activity as AppCompatActivity).supportActionBar?.title = it.name
                 updateUi(it)
             }
         }
+
+        viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                findNavController().navigate(
+                    HouseDetailFragmentDirections.actionHouseDetailFragmentToAnimalDetailFragment(it)
+                )
+                viewModel.displayPropertyDetailsComplete()
+            }
+        })
 
         return binding.root
     }
@@ -53,7 +68,9 @@ class HouseDetailFragment: Fragment() {
         binding.houseDetailImage.loadImage(property.picUrl)
         binding.houseDetailContent.text = property.info
         binding.houseDetailMemo.text =
-            if (property.memo?.isNotEmpty() == true) property.memo else ZooApplication.instance.resources.getString(R.string.no_operation_information)
+            if (property.memo?.isNotEmpty() == true) property.memo else ZooApplication.instance.resources.getString(
+                R.string.no_operation_information
+            )
 
         // set up spanned string with url
         val spannableString =

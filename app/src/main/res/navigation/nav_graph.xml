@@ -28,6 +28,20 @@
         <argument
             android:name="selectedProperty"
             app:argType="com.beva.momoapplication.model.ResultX" />
+        <action
+            android:id="@+id/action_houseDetailFragment_to_animalDetailFragment"
+            app:destination="@id/animalDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/animalDetailFragment"
+        android:name="com.beva.momoapplication.view.AnimalDetailFragment"
+        android:label="fragment_animal_detail"
+        tools:layout="@layout/fragment_animal_detail">
+
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.beva.momoapplication.model.ResultXXX" />
     </fragment>
 
 

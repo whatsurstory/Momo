@@ -1,7 +1,6 @@
 package com.beva.momoapplication.view
 
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import com.beva.momoapplication.ZooApplication
 import com.beva.momoapplication.databinding.ItemHomeBinding
 import com.beva.momoapplication.loadImage
 import com.beva.momoapplication.model.ResultX
-import com.bumptech.glide.Glide
 
 class HomeAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<ResultX, HomeAdapter.ViewHolder>(DiffCallback) {
@@ -24,7 +22,9 @@ class HomeAdapter(private val onClickListener: OnClickListener) :
             binding.houseInfo.text = item.info
             binding.houseMemo.visibility = View.VISIBLE
             binding.houseMemo.text =
-                if (item.memo?.isNotEmpty() == true) item.memo else ZooApplication.instance.resources.getString(R.string.no_operation_information)
+                item.memo?.ifEmpty {
+                    ZooApplication.instance.resources.getString(R.string.no_operation_information)
+                }
             binding.itemHomeImage.loadImage(item.picUrl)
         }
     }

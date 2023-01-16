@@ -2,6 +2,7 @@ package com.beva.momoapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -12,31 +13,27 @@ import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Timber.plant(Timber.DebugTree())
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel = MainViewModel()
 
         val navController = findNavController(R.id.nav_host_fragment)
         setSupportActionBar(binding.mainToolbar)
-        supportActionBar?.title = null
 
         appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                R.id.homeFragment -> {
-                    supportActionBar?.title = getString(R.string.zoo)
-                }
-                R.id.houseDetailFragment -> {
-                    supportActionBar?.title = "館名"
-                }
+            supportActionBar?.title =  when (destination.id) {
+                R.id.homeFragment -> CurrentFragmentType.HOME.value
+                else -> ""
             }
         }
 
@@ -46,5 +43,5 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
-    private fun setToolbar(){}
+
 }

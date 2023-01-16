@@ -10,11 +10,10 @@ import com.beva.momoapplication.network.ZooApi
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class HouseDetailVieModel(zooProperty: ResultX): ViewModel() {
+class HouseDetailVieModel(zooProperty: ResultX) : ViewModel() {
 
     private val _selectedProperty = MutableLiveData<ResultX>()
 
-    // The external LiveData for the SelectedProperty
     val selectedProperty: LiveData<ResultX>
         get() = _selectedProperty
 
