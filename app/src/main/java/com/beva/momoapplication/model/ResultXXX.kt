@@ -1,8 +1,13 @@
 package com.beva.momoapplication.model
 
+import android.os.Parcelable
+import com.squareup.moshi.Json
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class ResultXXX(
-    val _id: Int,
-    val _importdate: ImportdateX,
+    @Json(name = "_id") val id: Int,
+    @Json(name = "_importdate") val importDate: ImportDate,
     val a_adopt: String,
     val a_alsoknown: String,
     val a_behavior: String,
@@ -49,4 +54,4 @@ data class ResultXXX(
     val a_voice02_url: String,
     val a_voice03_alt: String,
     val a_voice03_url: String
-)
+) : Parcelable

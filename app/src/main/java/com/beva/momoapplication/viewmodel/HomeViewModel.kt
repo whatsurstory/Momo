@@ -22,13 +22,11 @@ class HomeViewModel: ViewModel() {
     val properties: LiveData<List<ResultX>>
         get() = _properties
 
-    private val result = mutableListOf<ResultX>()
-
     // Internally, we use a MutableLiveData to handle navigation to the selected property
-    private val _navigateToSelectedProperty = MutableLiveData<ResultX>()
+    private val _navigateToSelectedProperty = MutableLiveData<ResultX?>()
 
     // The external immutable LiveData for the navigation property
-    val navigateToSelectedProperty: LiveData<ResultX>
+    val navigateToSelectedProperty: MutableLiveData<ResultX?>
         get() = _navigateToSelectedProperty
 
     init {

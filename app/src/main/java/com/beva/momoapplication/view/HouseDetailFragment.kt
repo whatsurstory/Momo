@@ -1,0 +1,77 @@
+package com.beva.momoapplication.view
+
+import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.URLSpan
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import com.beva.momoapplication.R
+import com.beva.momoapplication.ZooApplication
+import com.beva.momoapplication.databinding.FragmentHouseDetailBinding
+import com.beva.momoapplication.loadImage
+import com.beva.momoapplication.model.ResultX
+import com.beva.momoapplication.viewmodel.HouseDetailVieModel
+
+class HouseDetailFragment: Fragment() {
+
+    private lateinit var binding: FragmentHouseDetailBinding
+
+    private lateinit var viewModel: HouseDetailVieModel
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?): View? {
+        binding = FragmentHouseDetailBinding.inflate(inflater)
+        arguments?.let {
+            viewModel =
+                HouseDetailVieModel(HouseDetailFragmentArgs.fromBundle(it).selectedProperty)
+        }
+
+        val adapter = AnimalsAdapter()
+        binding.houseDetailRecycler.adapter = adapter
+        viewModel.properties.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+        })
+
+        viewModel.selectedProperty.observe(viewLifecycleOwner) { property ->
+            property?.let {
+                updateUi(it)
+            }
+        }
+
+        return binding.root
+    }
+
+    private fun updateUi(property: ResultX) {
+        binding.houseDetailImage.loadImage(property.picUrl)
+        binding.houseDetailContent.text = property.info
+        binding.houseDetailMemo.text =
+            if (property.memo?.isNotEmpty() == true) property.memo else ZooApplication.instance.resources.getString(R.string.no_operation_information)
+
+        // set up spanned string with url
+        val spannableString =
+            SpannableString(getString(R.string.web_open))
+
+        spannableString
+            .setSpan(
+                URLSpan(property.url),
+                0,
+                binding.houseDetailWeb.text.length,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+
+        binding.houseDetailWeb.text = spannableString
+        // enable clicking on url span
+        binding.houseDetailWeb.movementMethod = LinkMovementMethod.getInstance()
+
+        binding.houseDetailCategory.text = property.category
+    }
+
+}

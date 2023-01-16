@@ -34,11 +34,17 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment -> {
                     supportActionBar?.title = getString(R.string.zoo)
                 }
+                R.id.houseDetailFragment -> {
+                    supportActionBar?.title = "館名"
+                }
             }
         }
 
 
     }
-
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
     private fun setToolbar(){}
 }

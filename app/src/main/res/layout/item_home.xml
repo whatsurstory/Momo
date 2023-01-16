@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="4dp">
+    android:layout_height="wrap_content" >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -24,6 +23,7 @@
                 android:id="@+id/item_home_image"
                 android:layout_width="120dp"
                 android:layout_height="0dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -48,7 +48,7 @@
                 android:id="@+id/house_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:maxLength="28"
+                android:maxLength="26"
                 android:padding="4dp"
                 android:text="@string/home_description"
                 app:layout_constraintBottom_toTopOf="@+id/house_memo"
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:padding="4dp"
                 android:text="@string/no_operation_information"
-                android:maxLength="16"
+                android:maxLength="10"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/item_home_image"
                 app:layout_constraintEnd_toEndOf="@+id/house_info"
@@ -73,10 +73,12 @@
                 android:layout_width="24dp"
                 android:layout_height="28dp"
                 android:background="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:contentDescription="@string/more_text"
                 app:layout_constraintBottom_toBottomOf="@id/item_home_image"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/house_info"
                 app:layout_constraintTop_toTopOf="@id/item_home_image"
-                tools:ignore="TouchTargetSizeCheck"/>
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
