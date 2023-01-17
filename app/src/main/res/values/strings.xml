@@ -24,4 +24,6 @@
     <string name="update">最後更新時間</string>
     <string name="update_text">最後更新時間</string>
     <string name="more_text">查看更多</string>
+    <string name="internet_not_connected">您尚未連接網路</string>
+    <string name="you_know_nothing">說不上為什麼</string>
 </resources>

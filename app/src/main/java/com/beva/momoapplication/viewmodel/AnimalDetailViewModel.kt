@@ -24,7 +24,7 @@ class AnimalDetailViewModel(animalData: ResultXXX): ViewModel() {
         getImage()
     }
 
-    private fun getImage(){
+    private fun getImage() {
         val detailImage = mutableListOf<String>()
         if (selectedProperty.value?.a_pic01_url?.isNotEmpty() == true) {
             selectedProperty.value?.a_pic01_url?.let {
