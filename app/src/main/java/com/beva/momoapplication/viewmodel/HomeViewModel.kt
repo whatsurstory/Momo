@@ -35,7 +35,6 @@ class HomeViewModel(private val zooRepository: ZooRepository) : ViewModel() {
     val status: LiveData<LoadApiStatus>
         get() = _status
 
-    // error: The internal MutableLiveData that stores the error of the most recent request
     private val _error = MutableLiveData<String>()
 
     val error: LiveData<String>

@@ -72,4 +72,6 @@ dependencies {
 
     // Retrofit Logging Interceptor
     implementation('com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.5')
+
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

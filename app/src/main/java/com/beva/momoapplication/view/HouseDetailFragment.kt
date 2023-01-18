@@ -10,21 +10,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.beva.momoapplication.CurrentFragmentType
 import com.beva.momoapplication.R
 import com.beva.momoapplication.ZooApplication
 import com.beva.momoapplication.databinding.FragmentHouseDetailBinding
+import com.beva.momoapplication.getVmFactory
+
 import com.beva.momoapplication.loadImage
 import com.beva.momoapplication.model.ResultX
+import com.beva.momoapplication.viewmodel.HomeViewModel
 import com.beva.momoapplication.viewmodel.HouseDetailVieModel
 
 class HouseDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentHouseDetailBinding
 
-    private lateinit var viewModel: HouseDetailVieModel
+    private val viewModel by viewModels<HouseDetailVieModel> { getVmFactory(HouseDetailFragmentArgs.fromBundle(requireArguments()).selectedProperty) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,10 +36,10 @@ class HouseDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHouseDetailBinding.inflate(inflater)
-        arguments?.let {
-            viewModel =
-                HouseDetailVieModel(HouseDetailFragmentArgs.fromBundle(it).selectedProperty)
-        }
+//        arguments?.let {
+//            viewModel =
+//                HouseDetailVieModel(HouseDetailFragmentArgs.fromBundle(it).selectedProperty)
+//        }
 
         val adapter = AnimalsAdapter(AnimalsAdapter.OnClickListener {
             viewModel.displayPropertyDetails(it)

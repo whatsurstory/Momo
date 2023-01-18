@@ -3,7 +3,6 @@ package com.beva.momoapplication.viewmodel
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.beva.momoapplication.MainViewModel
 import com.beva.momoapplication.source.ZooRepository
 
 @Suppress("UNCHECKED_CAST")
@@ -14,8 +13,8 @@ class ViewModelFactory constructor(
     override fun <T : ViewModel> create(modelClass: Class<T>) =
         with(modelClass) {
             when {
-                isAssignableFrom(MainViewModel::class.java) ->
-                    MainViewModel()
+//                isAssignableFrom(MainViewModel::class.java) ->
+//                    MainViewModel()
 
                 isAssignableFrom(HomeViewModel::class.java) ->
                     HomeViewModel(repository)
