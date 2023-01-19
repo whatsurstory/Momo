@@ -6,181 +6,185 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ScrollView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/animal_detail_image_recycler"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription"
-            tools:src="@tools:sample/avatars"
-            tools:listitem="@layout/item_picture"/>
-
-        <TextView
-            android:id="@+id/animal_detail_name_zh"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/name_zh"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_image_recycler" />
-
-        <TextView
-            android:id="@+id/animal_detail_name_en"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/name_en"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_name_zh"
-            app:layout_constraintStart_toStartOf="@+id/animal_detail_name_zh"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_name_zh" />
-
-        <TextView
-            android:id="@+id/animal_detail_aka"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/aka"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_name_en"
-            app:layout_constraintStart_toStartOf="@+id/animal_detail_name_en"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_name_en" />
-
-        <TextView
-            android:id="@+id/animal_detail_aka_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/aka_text"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_aka"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_aka"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_aka" />
+            app:layout_constraintTop_toTopOf="parent">
 
 
-        <TextView
-            android:id="@+id/animal_detail_distribution"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/distribution"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_aka_text"
-            app:layout_constraintStart_toStartOf="@+id/animal_detail_aka_text"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_aka_text" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/animal_detail_image_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:listitem="@layout/item_picture"
+                tools:src="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/animal_detail_distribution_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/distribution_text"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_distribution"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_distribution"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_distribution" />
+            <TextView
+                android:id="@+id/animal_detail_name_zh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/name_zh"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_image_recycler" />
 
-        <TextView
-            android:id="@+id/animal_detail_feature"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/feature"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_distribution_text"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_distribution_text"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_distribution_text" />
+            <TextView
+                android:id="@+id/animal_detail_name_en"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/name_en"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_name_zh"
+                app:layout_constraintStart_toStartOf="@+id/animal_detail_name_zh"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_name_zh" />
 
-        <TextView
-            android:id="@+id/animal_detail_feature_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/feature_text"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_feature"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_feature"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_feature" />
+            <TextView
+                android:id="@+id/animal_detail_aka"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/aka"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_name_en"
+                app:layout_constraintStart_toStartOf="@+id/animal_detail_name_en"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_name_en" />
 
-        <TextView
-            android:id="@+id/animal_detail_behavior"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/behavior"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_feature_text"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_feature_text"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_feature_text" />
+            <TextView
+                android:id="@+id/animal_detail_aka_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/aka_text"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_aka"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_aka"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_aka" />
 
-        <TextView
-            android:id="@+id/animal_detail_behavior_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/behavior_text"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_behavior"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_behavior"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_behavior" />
 
-        <TextView
-            android:id="@+id/animal_detail_diet"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/diet"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_behavior_text"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_behavior_text"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_behavior_text" />
+            <TextView
+                android:id="@+id/animal_detail_distribution"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/distribution"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_aka_text"
+                app:layout_constraintStart_toStartOf="@+id/animal_detail_aka_text"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_aka_text" />
 
-        <TextView
-            android:id="@+id/animal_detail_diet_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/diet_text"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_diet"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_diet"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_diet" />
+            <TextView
+                android:id="@+id/animal_detail_distribution_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/distribution_text"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_distribution"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_distribution"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_distribution" />
 
-        <TextView
-            android:id="@+id/animal_detail_update"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/update"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_diet_text"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_diet_text"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_diet_text" />
+            <TextView
+                android:id="@+id/animal_detail_feature"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/feature"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_distribution_text"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_distribution_text"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_distribution_text" />
 
-        <TextView
-            android:id="@+id/animal_detail_update_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/update_text"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/animal_detail_update"
-            app:layout_constraintStart_toStartOf="@id/animal_detail_update"
-            app:layout_constraintTop_toBottomOf="@+id/animal_detail_update"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            <TextView
+                android:id="@+id/animal_detail_feature_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/feature_text"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_feature"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_feature"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_feature" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/animal_detail_behavior"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/behavior"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_feature_text"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_feature_text"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_feature_text" />
+
+            <TextView
+                android:id="@+id/animal_detail_behavior_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/behavior_text"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_behavior"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_behavior"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_behavior" />
+
+            <TextView
+                android:id="@+id/animal_detail_diet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/diet"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_behavior_text"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_behavior_text"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_behavior_text" />
+
+            <TextView
+                android:id="@+id/animal_detail_diet_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/diet_text"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_diet"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_diet"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_diet" />
+
+            <TextView
+                android:id="@+id/animal_detail_update"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/update"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_diet_text"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_diet_text"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_diet_text" />
+
+            <TextView
+                android:id="@+id/animal_detail_update_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/update_text"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/animal_detail_update"
+                app:layout_constraintStart_toStartOf="@id/animal_detail_update"
+                app:layout_constraintTop_toBottomOf="@+id/animal_detail_update" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

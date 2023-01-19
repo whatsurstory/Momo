@@ -5,7 +5,7 @@
     <string name="no_aka_information">無別名資訊</string>
     <string name="no_update_information">無更新資訊</string>
     <string name="home_title">無尾熊館</string>
-    <string name="zoo">臺北市立動物園</string>
+    <string name="zoo">\n\n臺北市立動物園</string>
     <string name="category">室內區</string>
     <string name="web_open">在網頁中開啟</string>
     <string name="animal_data_text">動物資料</string>

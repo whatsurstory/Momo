@@ -15,6 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 
@@ -65,11 +66,13 @@ class HomeViewModel(private val zooRepository: ZooRepository) : ViewModel() {
         Timber.i("init getZooProperties")
     }
 
-    private fun getZooProperties(isInitial: Boolean = false) {
+    fun getZooProperties(isInitial: Boolean = false) {
 
         coroutineScope.launch {
             if (isInitial) _status.value = LoadApiStatus.LOADING
-            val listResult = zooRepository.getProperties()
+            val listResult = withContext(Dispatchers.IO) {
+                zooRepository.getProperties()
+            }
             _properties.value = when (listResult) {
                 is Result.Success -> {
                     _error.value = null

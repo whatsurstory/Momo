@@ -29,13 +29,17 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         setSupportActionBar(binding.mainToolbar)
 
+
         appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            supportActionBar?.title =  when (destination.id) {
-                R.id.homeFragment -> CurrentFragmentType.HOME.value
-                else -> ""
+            when (destination.id) {
+                R.id.homeFragment -> {
+                    supportActionBar?.title = CurrentFragmentType.HOME.value
+                    supportActionBar?.setIcon(R.drawable.ic_baseline_density_medium_24)
+                }
+                else -> supportActionBar?.setIcon(null)
             }
         }
 
